@@ -198,4 +198,73 @@ const max = 100;
 let randomNumb = Math.floor(Math.random() * (max - min)) + min;
 console.log(randomNumb);
 
+// if statements
+
+let age = 21;
+
+if(age >= 18) {
+    console.log("you are old enough to work");
+}
+else {
+    console.log("you are not old enough to work");
+}
+
+//exampl 2
+let time = 14;
+if(time < 12) {
+    console.log("Good Morning");
+}
+else {
+    console.log("Good Afternoon");
+}
+
+//with boolean
+
+let isStudent = false;
+if(isStudent){
+    console.log("YOU ARE A STUDENT")
+}
+else{
+    console.log("YOU ARE NOT A STUDENT")
+}
+
+//Nested if statements
+
+let age = 21;
+let hasLicense = true;
+if(age >=18) {
+    console.log("you are old enough to drive");
+
+    if(hasLicense){
+        console.log("You hav License");
+    }
+    else{
+        console.log("You dont have License")
+    }
+}
+else {
+   console.log("you are not old enough to have a license");
+}
+
+//else if statements
+
+let age = 0;
+
+if(age >= 1000){
+    console.log("You are too old to be alive");
+}
+else if(age == 0){
+    console.log("CONGRATULATIONS YOU WERE JUST BORN");
+}
+else if(age >= 18){
+    console.log("You are old enough to enter this site");
+}
+else if(age < 0) {
+    console.log("you cannot be below 0 years old");
+}
+
+else{
+    console.log("You must be 18+ to enter this site");
+}
+           
 */
