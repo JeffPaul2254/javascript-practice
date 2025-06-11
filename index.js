@@ -149,4 +149,53 @@ document.getElementById("mySubmit").onclick = function(){
        document.getElementById("myH3").textContent = "The circumference is " + circumference + "cm";
 }
 
+//math = built-in object that is a collection of properties and methods
+
+console.log(Math.PI);
+console.log(Math.E);
+
+let x = 3.5;
+let y = 4;
+let z;
+
+z = Math.round(x);
+console.log(z);
+z = Math.floor(x);
+console.log(z);
+z = Math.ceil(x);
+console.log(z);
+z = Math.trunc(x);
+console.log(z);
+z = Math.pow(x,y);
+console.log(z);
+z = Math.sqrt(x);
+console.log(z);
+z = Math.log(x);
+console.log(z);
+z = Math.sin(x);
+console.log(z);
+z = Math.cos(x);
+console.log(z);
+z = Math.tan(x);
+console.log(z);
+let a = -2.141;
+b = Math.abs(a);
+console.log(b);
+b = Math.sign(a);
+console.log(b);
+let max = Math.max(x,y,a);
+console.log(max);
+let min = Math.min(x,y,a);
+console.log(min);
+
+//Random number generator
+
+let randomNum = Math.floor(Math.random() * 6) + 1;
+console.log(randomNum);
+
+const min = 50;
+const max = 100;
+let randomNumb = Math.floor(Math.random() * (max - min)) + min;
+console.log(randomNumb);
+
 */
