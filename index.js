@@ -266,5 +266,122 @@ else if(age < 0) {
 else{
     console.log("You must be 18+ to enter this site");
 }
-           
+
+//ternary operator is a shortcut of if else statements
+
+let age = 21;
+let message = age >= 18 ? "You are a Adult" : "You are a minor";
+console.log(message);
+
+let time = 16;
+let greeting = time < 12 ? "Good Morning" : "Good Afternoon";
+console.log(greeting);
+
+let purchaseAmount = 125;
+let discount = purchaseAmount >- 100 ? 10 : 0;
+console.log(`Your total amount is $${purchaseAmount - purchaseAmount * (discount/100)}`);
+
+//switches
+
+//example 1
+
+let day = `jeff`;
+
+switch(day) {
+        case 1:
+        console.log("It is Monday");
+        break;
+        case 2:
+        console.log("It is Tuesday");
+        break;
+        case 3:
+        console.log("It is Wednesday");
+        break;
+        case 4:
+        console.log("It is Thursday");
+        break;
+        case 5:
+        console.log("It is Friday");
+        break;
+        case 6:
+        console.log("It is Saturday");
+        break;
+        case 7:
+        console.log("It is Sunday");
+        break;
+        default:
+        console.log(`${day} is not a day`);
+
+}
+
+//example 2
+
+let testScore = 95;
+let letterGrade;
+
+switch(true){
+        case testScore >= 90:
+        letterGrade = "A";
+        break;
+        case testScore >= 80:
+        letterGrade = "B";
+        break;
+        case testScore >= 70:
+        letterGrade = "C";
+        break;
+        case testScore >= 60:
+        letterGrade = "D";
+        break;
+        default:
+        letterGrade = "E";
+}
+console.log(letterGrade);
+
+//string methods
+
+let userName = "JeffPaul";
+userName.charAt(0);
+console.log(userName.charAt(0));
+
+userName.indexOf("a");
+console.log(userName.indexOf("f"));
+console.log(userName.lastIndexOf("f"));
+
+console.log(userName.length);
+
+userName = userName.trim();
+console.log(userName)
+
+userName = userName.toUpperCase();
+console.log(userName)
+
+userName = userName.toLowerCase();
+console.log(userName)
+
+userName = userName.repeat(5);
+console.log(userName)
+
+let userName = " JeffPaul ";
+let result1 = userName.startsWith(" ");
+console.log(result1);
+if(result1) {
+    console.log(`Your username cannot begin with ' '`);
+}
+else{
+    console.log(userName);
+}
+
+let result2 = userName.endsWith(" ");
+console.log(result2)
+
 */
+
+let phoneNumber = "701-939-2700";
+phoneNumber = phoneNumber.replaceAll("-","/");
+console.log(phoneNumber);
+
+phoneNumber = phoneNumber.padStart(25,"0");
+console.log(phoneNumber);
+
+phoneNumber = phoneNumber.padEnd(25,"0");
+console.log(phoneNumber);
