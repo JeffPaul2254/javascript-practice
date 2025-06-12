@@ -550,5 +550,64 @@ for(let i = 1; i <=20; i++){
         console.log(i);
     }
 }
+
+//functions
+
+function happyBirthday(username, age){
+    console.log("Happy Birthday to you!");
+    console.log("Happy Birthday to you!");
+    console.log(`Happy Birthday dear ${username}!`);
+    console.log(`You are ${age} years old!`);
+}
+happyBirthday("Jeffrey", 21);
+happyBirthday("ghost", 5000);
+
+//return keyword
+
+//example 1
+function add(x, y){
+    let result = x + y;
+    return result;
+}
+function sub(x, y){
+    return x - y;
+}
+function multiply(x, y){
+    return x * y;
+}
+function divide(x , y){
+    return x / y;
+}
+console.log(add(2, 3));
+console.log(sub(2, 3));
+console.log(multiply(2, 3));
+console.log(divide(2, 3));
        
 */
+//example 2
+function add(x, y){
+    let result = x + y;
+    return result;
+}
+function sub(x, y){
+    return x - y;
+}
+function multiply(x, y){
+    return x * y;
+}
+function divide(x , y){
+    return x / y;
+}
+function isEven(number){
+    if(number % 2 === 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function isValidemail(email){
+    return email.includes("@") ? true : false;
+}
+console.log(isValidemail("ELONMUS,com"));
+console.log(isValidemail("ELONMUS@com"));
