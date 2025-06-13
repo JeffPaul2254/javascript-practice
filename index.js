@@ -582,8 +582,7 @@ console.log(add(2, 3));
 console.log(sub(2, 3));
 console.log(multiply(2, 3));
 console.log(divide(2, 3));
-       
-*/
+
 //example 2
 function add(x, y){
     let result = x + y;
@@ -611,3 +610,168 @@ function isValidemail(email){
 }
 console.log(isValidemail("ELONMUS,com"));
 console.log(isValidemail("ELONMUS@com"));
+ 
+//Variable scope :local and global
+
+//local
+
+function function1(){
+    let x = 1;
+    console.log(x);
+}
+function function2(){
+    let x = 2;
+    console.log(x);
+}
+function1();
+function2();
+
+//global
+
+let x = 3;
+function function1(){
+    console.log(x);
+}
+function function2(){
+    console.log(x);
+}
+function1();
+function2();
+
+//arrays
+
+//example1
+
+let fruit = ["apple","orange","banana"];
+
+//fruit[3] = "coconut";
+//fruit.push("coconut");
+//fruit.pop();
+//fruit.unshift("mango");
+//fruit.shift();
+
+console.log(fruit[0]);
+console.log(fruit[1]);
+console.log(fruit[2]);
+console.log(fruit[3]);
+
+let numOfFruits = fruit.length;
+console.log(numOfFruits);
+let index = fruit.indexOf("mango");
+console.log(index);
+
+//example2
+
+let fruit = ["apple","orange","banana","coconut"];
+for(let i = fruit.length - 1; i >= 0; i--)
+{
+    console.log(fruit[i]);
+}
+
+//example3
+let fruit = ["apple","orange","banana","coconut"];
+for(let i = 0; i < fruit.length; i++)
+{
+    console.log(fruit[i]);
+}
+
+//example4
+          
+let fruits = ["apple","orange","banana","coconut"];
+//fruits.sort();
+fruits.sort().reverse();
+for(let fruit of fruits){
+    console.log(fruit);
+}
+
+//spread operator
+
+//example1
+let numbers = [1, 2, 3, 4, 5];
+let maximum = Math.max(...numbers);
+let minimum = Math.min(...numbers);
+console.log(numbers);
+console.log(maximum);
+console.log(minimum);
+
+//example2
+
+let username = "Jeffrey Paulouse";
+let letters = [...username].join(".");
+console.log(letters);
+
+//example3
+
+let fruits = ["apple","orange","banana"];
+let vegetables = ["carrots","tomato","potato"];
+
+let foods = [...fruits,...vegetables,"eggs","milk"];
+console.log(fruits);
+console.log(foods);
+
+//Rest Parameters(opposite of spread)
+
+//example1
+
+function openFridge(...foods){
+    console.log(...foods);
+}
+function getFood(...foods){
+    return foods;
+}
+
+const food1 = "pizza";
+const food2 = "briyani";
+const food3 = "KFC";
+const food4 = "sushi";
+const food5 = "ramen";
+
+//openFridge(food1, food2, food3, food4, food5);
+
+const foods = getFood(food1, food2, food3, food4, food5);
+console.log(foods);
+
+//example2
+
+function sum(...numbers){
+
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result;
+}
+const total = sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+console.log(`Your total is $${total}`);
+
+//example3
+
+function sum(...numbers){
+
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result;
+}
+function getAverage(...numbers){
+
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result / numbers.length;
+}
+const total = getAverage(75, 100, 90, 80, 40);
+console.log(total);
+
+//example4
+
+function combineString(...strings){
+    return strings.join(" ");
+}
+
+const fullName = combineString("Mr.","SpongBob","SquarePants","the","Fifth");
+console.log(fullName);
+              
+*/
