@@ -773,5 +773,310 @@ function combineString(...strings){
 
 const fullName = combineString("Mr.","SpongBob","SquarePants","the","Fifth");
 console.log(fullName);
-              
+
+//callback function
+
+//example1
+
+function hello(callback){
+    console.log("Hello");
+    callback();
+}
+
+function goodbye(){
+    console.log("Goodbye");
+}
+
+function leave(){
+    console.log("Leave!");
+}
+
+function wait(){
+    console.log("Wait!");
+}
+hello(wait);
+
+//exampl2
+
+function sum(callback, x, y){
+    let result = x + y;
+    callback(result);
+}
+
+function displayConsole(result){
+    console.log(result);
+}
+
+function displayPage(result){
+    document.getElementById("myH1").textContent = result;
+
+}
+
+sum(displayPage, 5, 8);
+
+//forEach() method : array.forEach(callback);
+
+//example1
+
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(cube);
+numbers.forEach(square);
+numbers.forEach(triple);
+numbers.forEach(double);
+numbers.forEach(display);
+
+function double(element, index, array){
+    array[index] = element * 2;
+}
+
+function triple(element, index, array){
+    array[index] = element * 3;
+}
+
+function square(element, index, array){
+    array[index] = Math.pow(element, 2);
+}
+
+function cube(element, index, array){
+    array[index] = Math.pow(element, 3);
+}
+
+function display(element){
+    console.log(element);
+}
+
+//example2
+
+let fruits = ['apple','banana','orange','coconut'];
+
+fruits.forEach(capitalize);
+//fruits.forEach(lowerCase);
+//fruits.forEach(upperCase);
+fruits.forEach(display);
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase();
+}
+
+function lowerCase(element, index, array){
+    array[index] = element.toLowerCase();
+}
+
+function capitalize(element, index, array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+}
+
+function display(element){
+    console.log(element);
+}
+
+//.map() method
+
+//example1
+
+const  numbers = [1, 2, 3, 4, 5];
+
+const squares = numbers.map(square);
+console.log(squares);
+
+const cubes = numbers.map(cube);
+console.log(cubes);
+
+function square(element){
+    return Math.pow(element, 2);
+}
+
+function cube(element){
+    return Math.pow(element, 3);
+}
+
+//example2
+
+const students = ['Jeffrey','Joshua','Jason','Akshay'];
+
+const studentsUpper = students.map(upperCase);
+console.log(studentsUpper);
+
+const studentsLower = students.map(lowerCase);
+console.log(studentsLower);
+
+function upperCase(element){
+    return element.toUpperCase();
+}
+
+function lowerCase(element){
+    return element.toLowerCase();
+}
+
+//example3
+
+const dates  = ["2004-5-10","2025-2-20","2026-3-30"];
+const formattedDates = dates.map(formatDates);
+console.log(formattedDates);
+
+function formatDates(element){
+    const parts = element.split("-");
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+//.filter() method 
+
+//example1
+
+let numbers = [1, 2, 3, 4, 5, 6, 7];
+let evenNums = numbers.filter(isEven);
+console.log(evenNums);
+let oddNums = numbers.filter(isOdd);
+console.log(oddNums);
+
+function isEven(element){
+    return element % 2 == 0;
+}
+
+function isOdd(element){
+    return element % 2 !== 0;
+}
+
+//example2
+
+const ages = [16, 17, 18, 18, 19, 20, 16];
+const adults = ages.filter(isAdult);
+console.log(adults);
+const children = ages.filter(isChild);
+console.log(children);
+
+function isAdult(element){
+    return element >= 18;
+}
+
+function isChild(element){
+    return element < 18;
+}
+
+//example3
+
+const words = ["Chemistry","Biology","English","Kannada","Mathematics","electronics"];
+const shortWords = words.filter(getShort);
+console.log(shortWords);
+const longWords = words.filter(getLong);
+console.log(longWords);
+
+function getShort(element){
+    return element.length <= 7;
+}
+
+function getLong(element){
+    return element.length > 7;
+}
+
+//reduce() method 
+
+//example1
+
+const prices = [100, 12, 25, 75, 24, 89];
+
+const total = prices.reduce(sum);
+console.log(`Total Amount : ${total.toFixed(2)}`);
+
+function sum(accumulator, element){
+    return accumulator + element;
+}
+
+//example2
+
+const grades = [60, 75, 80, 90, 95, 99];
+
+const maximum = grades.reduce(getMax);
+console.log(maximum);
+const minimum = grades.reduce(getMin);
+console.log(minimum);
+
+function getMax(previous, next){
+    return Math.max(previous, next);
+}
+
+function getMin(previous, next){
+    return Math.min(previous, next);
+}
+
+//function expression : assign a function to a variable or send it as a value to another fucntion
+
+//example1
+
+const hello = function(){
+    console.log("Hello");
+}
+hello();
+
+//example2
+
+function hello(){
+    console.log("Hello");
+}
+
+setTimeout(hello, 3000);
+
+//example3
+
+setTimeout(function(){
+    console.log("Hello");
+}, 3000);
+
+//example4
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const squares = numbers.map(function(Element){
+    return Math.pow(Element, 2);
+})
+console.log(squares);
+
+const cubes = numbers.map(function(element){
+    return Math.pow(element, 3);
+})
+console.log(cubes);
+
+const evenNums = numbers.filter(function(element){
+    return element % 2 == 0;
+})
+console.log(evenNums);
+
+const oddNums = numbers.filter(function(element){
+    return element % 2 == 1;
+})
+console.log(oddNums);
+
+const total = numbers.reduce(function(previous, next){
+    return previous + next;
+})
+console.log(total);
+
+//arrow functions : write functions shortly
+//(parameters) => some code
+
+//example1
+
+const hello = (name, age) => {console.log(`Hello ${name}`)
+console.log(`Hello you are ${age} old`)};
+hello("Jeffrey Paulouse",21);
+      
+//example2
+
+setTimeout(() => console.log("HELLO"), 3000);
+                                                  
 */
+
+//example3
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const squares = numbers.map((element) => Math.pow(element, 2));
+console.log(squares);
+const cubes = numbers.map((element) => Math.pow(element, 3));
+console.log(cubes);
+const evenNums = numbers.filter((element) => element % 2 ==0);
+console.log(evenNums);
+const oddNums = numbers.filter((element) => element % 2 ==1);
+console.log(oddNums);
+const total = numbers.reduce((accumulator,element) => accumulator + element);
+console.log(total);
