@@ -1063,8 +1063,6 @@ hello("Jeffrey Paulouse",21);
 //example2
 
 setTimeout(() => console.log("HELLO"), 3000);
-                                                  
-*/
 
 //example3
 
@@ -1080,3 +1078,391 @@ const oddNums = numbers.filter((element) => element % 2 ==1);
 console.log(oddNums);
 const total = numbers.reduce((accumulator,element) => accumulator + element);
 console.log(total);
+
+//objects in javascript
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    isEmployed: true,
+    sayHello: function(){console.log("Hi I am spongbob")},
+    eat: function(){console.log("I am eating a crabby patty")},
+}
+
+console.log(person1.firstName);
+console.log(person1.lastName);
+console.log(person1.age);
+console.log(person1.isEmployed);
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Starr",
+    age: 50,
+    isEmployed: false,
+    sayHello: function(){console.log("Hey I am Patrick")},
+    eat: function(){console.log("I am eating Briyani")},
+}
+
+console.log(person2.firstName);
+console.log(person2.lastName);
+console.log(person2.age);
+console.log(person2.isEmployed);
+
+person1.sayHello();
+person2.sayHello();
+person1.eat();
+person2.eat();
+
+//this keyword
+
+const person1 = {
+    name: "Jeffrey Paulouse",
+    favFood: "KFC",
+    sayHello: function(){console.log(`Hi I am ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating his favorite food that is ${this.favFood}`)},
+}
+person1.sayHello();
+person1.eat();
+
+const person2 = {
+    name: " Patrick Starr",
+    favFood: "Pizza",
+    sayHello: function(){console.log(`Hi I am ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating his favorite food that is ${this.favFood}`)},
+}
+person2.sayHello();
+person2.eat();
+
+//constructors
+
+function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+    this.drive = function(){console.log(`You are driving ${make,model}`)}
+}
+
+const car1 = new Car("Ford", "Mustang", 2024, "Blue-Black");
+const car2 = new Car("Chevrolet", "Chamero", 2004, "red-silver");
+const car3 = new Car("Dodge", "Charger", 2021, "Black-silver");
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+car1.drive();
+
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
+car2.drive();
+
+console.log(car3.make);
+console.log(car3.model);
+console.log(car3.year);
+console.log(car3.color);
+car3.drive();
+
+//classes : structured and cleaner way to work with objects
+
+class product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: Rs.${this.price.toFixed(2)}`);
+    }
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax);
+    }
+}
+
+const salesTax = 0.05;
+
+const product1 = new product("Shirt", 299);
+product1.displayProduct();
+const total1 = product1.calculateTotal(salesTax);
+console.log(`Total Price(with Tax): Rs.${total1.toFixed(2)}`);
+
+const product2 = new product("Pants", 199);
+product2.displayProduct();
+const total2 = product2.calculateTotal(salesTax);
+console.log(`Total Price(with Tax): Rs.${total2.toFixed(2)}`);
+
+const product3 = new product("Shoes", 499);
+product3.displayProduct();
+const total3 = product3.calculateTotal(salesTax);
+console.log(`Total Price(with Tax): Rs.${total3.toFixed(2)}`);
+
+//static Keyword
+
+//example1
+
+class mathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2;
+    }
+    static getCircumference(radius){
+        return 2 * this.PI * radius;
+    }
+    static getArea(radius){
+        return this.PI * radius * radius;
+    }
+}
+console.log(mathUtil.PI);
+console.log(mathUtil.getDiameter(10));
+console.log(mathUtil.getCircumference(10));
+console.log(mathUtil.getArea(10));
+
+//example2
+
+class User{
+    static userCount = 0;
+
+    constructor(userName){
+        this.userName = userName;
+        User.userCount++;
+    }
+    static getUsercount(){
+        console.log(`There are ${User.userCount} users online`);
+    }
+    sayHello(){
+        console.log(`My username is ${this.userName}`);
+    }
+}
+
+const user1 = new User("Jeffrey Paulouse");
+console.log(user1.userName);
+user1.sayHello();
+
+const user2 = new User("Finny Ebenezer");
+console.log(user2.userName);
+user2.sayHello();
+
+const user3 = new User("Fanny Evangeline");
+console.log(user3.userName);
+user3.sayHello();
+
+console.log(User.userCount);
+User.getUsercount();
+
+//inherietance
+
+class Animal{
+    alive = true;
+    eat(){
+        console.log(`This ${name} is eating`);
+    }
+    sleep(){
+        console.log(`This ${name} is sleeping`);
+    }
+}
+class Rabbit extends Animal{
+    name = "Rabbit";
+    run(){
+        console.log(`This ${name} is running`);
+    }
+
+}
+class Fish extends Animal{
+    name = "fish";
+    swim(){
+        console.log(`This ${name} is Swimming`);
+    }
+}
+class Hawk extends Animal{
+    name = "Hawk";
+    fly(){
+        console.log(`This ${name} is flying`);
+    }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+rabbit.alive = false;
+console.log(rabbit.alive);
+
+rabbit.eat();
+rabbit.sleep();
+rabbit.run();
+
+fish.eat();
+fish.sleep();
+fish.swim();
+
+hawk.eat();
+hawk.sleep();
+hawk.fly();
+
+//super keyword
+
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    move(speed){
+        console.log(`This ${this.name} moves at a speed of ${speed}km/h`);
+    }
+}
+class Rabbit extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+    run(){
+        console.log(`This ${this.name} can run`);
+        super.move(this.runSpeed);
+    }
+}
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+    swim(){
+        console.log(`This ${this.name} can swim`);
+        super.move(this.swimSpeed);
+    }
+}
+class Hawk extends Animal{
+    constructor(name, age, flySpeed){
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
+    fly(){
+        console.log(`This ${this.name} can fly`);
+        super.move(this.flySpeed);
+    }
+    
+}
+
+const rabbit = new Rabbit("Rabbit", 2, 25);
+const fish = new Fish("Fish", 1, 11);
+const hawk = new Hawk("Hawk", 3, 60);
+
+console.log(rabbit.name);
+console.log(rabbit.age);
+console.log(rabbit.runSpeed);
+rabbit.run();
+
+console.log(fish.name);
+console.log(fish.age);
+console.log(fish.swimSpeed);
+fish.swim();
+
+console.log(hawk.name);
+console.log(hawk.age);
+console.log(hawk.flySpeed);
+hawk.fly();
+
+//getters and setters method
+
+//example1
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("Width must be a positive number");
+        }
+    }
+    set height(newHeight){
+        if(newHeight > 0){
+            this._hieght = newHeight;
+        }
+        else{
+            console.error("Height must be a positive number");
+        }
+    }
+    get width(){
+        return `${this._width.toFixed(1)}cm`;
+    }
+    get height(){
+        return `${this._hieght.toFixed(1)}cm`;
+    }
+    get area(){
+        return `${(this._width * this._hieght).toFixed(1)}cm^2`;
+    }
+}
+
+const rectangle = new Rectangle(3,"4");
+
+rectangle.width = 9;
+rectangle.height = 6;
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
+                                                  
+*/
+
+//example2
+
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    set firstName(newfirstName){
+        if(typeof newfirstName == "string" && newfirstName.length > 0){
+            this._firstName = newfirstName;
+        }
+        else{
+            console.error("First Name must be a non empty string");
+        }
+    }
+    set lastName(newlastName){
+        if(typeof newlastName == "string" && newlastName.length > 0){
+            this._lastName = newlastName;
+        }
+        else{
+            console.error("Last Name must be a non empty string");
+        }
+    }
+    set age(newAge){
+        if(typeof newAge == "number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.error("Age must be a non negative number");
+        }
+    }
+    get firstName(){
+        return this._firstName;
+    }
+    get lastName(){
+        return this._lastName;
+    }
+    get fullName(){
+        return this._firstName + " " +  this._lastName;
+    }
+    get age(){
+        return this._age;
+    }
+}
+
+const person = new Person("Jeffrey", "Paulouse", 21);
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.fullName);
+console.log(person.age);
