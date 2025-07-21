@@ -1410,8 +1410,6 @@ rectangle.height = 6;
 console.log(rectangle.width);
 console.log(rectangle.height);
 console.log(rectangle.area);
-                                                  
-*/
 
 //example2
 
@@ -1466,3 +1464,280 @@ console.log(person.firstName);
 console.log(person.lastName);
 console.log(person.fullName);
 console.log(person.age);
+
+// destructuring
+
+//example1 swap values of 2 variables
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b , a];
+console.log(a);
+console.log(b);
+
+//example2 swap 2 elements in an array
+
+const colors = ["red", "yellow", "blue", "green", "black"];
+[colors[0], colors[4]] = [colors[4], colors[0]];
+console.log(colors);
+
+//example3 assign array elements to variables
+const colors = ["red", "yellow", "blue", "green", "black"];
+
+const [firstcolor, secondcolor, thirdcolor, ...extracolors] = colors;
+console.log(firstcolor);
+console.log(secondcolor);
+console.log(thirdcolor);
+console.log(extracolors);
+
+
+//example4 extract values from objects
+
+const person1 = {
+    firstName: "Jeffrey",
+    lastName: "Paulouse",
+    age: 22,
+    job: "Intern"
+}
+
+const{firstName, lastName, age, job} = person1;
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+const person2 = {
+    firstName: "Finny",
+    lastName: "Ebby",
+    age: 30,
+}
+
+const{firstName, lastName, age, job = "Unemployed"} = person2;
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+//example5 destrucure function parameter
+
+function displayPerson({firstName, lastName, age, job = "Unemployed"}){
+  console.log(`name: ${firstName} ${lastName}`);
+  console.log(`age: ${age}`);
+  console.log(`job: ${job}`);
+}
+
+const person1 = {
+    firstName: "Jeffrey",
+    lastName: "Paulouse",
+    age: 22,
+    job: "Intern"
+}
+
+const person2 = {
+    firstName: "Finny",
+    lastName: "Ebby",
+    age: 30,
+}
+
+displayPerson(person2);
+displayPerson(person1);
+
+//nested Objects
+
+//example1
+
+const person = {
+    fullName: "Jeffrey Paulouse",
+    age: 22,
+    isStudent: false,
+    hobbies: ["reading", "gaming", "movies"],
+    address: {
+        street: "House No. 74, 2nd Main",
+        city: "Bangalore",
+        country: "India"
+    }
+}
+
+console.log(person.fullName);
+console.log(person.age);
+console.log(person.isStudent);
+console.log(person.hobbies[2]);
+console.log(person.address.street);
+console.log(person.address.city);
+console.log(person.address.country);
+
+for(const property in person.address) {
+   console.log(person.address[property]);
+}
+
+//example2
+
+class person{
+
+    constructor(name, age, ...address){
+        this.name = name;
+        this.age = age;
+        this.address = new Address(...address);
+    }
+}
+
+class Address{
+    
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+    
+}
+
+const person1 = new person("Jeffrey", 22, "House No. 74, 2nd Main", "Bangalore", "India");
+const person2 = new person("Finny", 30, "House No. 80, 2nd Main", "Bangalore", "India");
+const person3 = new person("Fanny", 26, "House No. 54, 2nd Main", "Bangalore", "India");
+
+console.log(person3.address.street);
+
+//array of objects
+
+const fruits = [{name: "apple", color: "red", calories: 60},
+               {name: "orange", color: "orange", calories: 50},
+               {name: "banana", color: "yellow", calories: 100},
+               {name: "coconut", color: "white", calories: 125},
+               {name: "watermelon", color: "green", calories: 89}];
+
+fruits.push({name: "grapes", color: "purple", calories: 23});
+fruits.pop();
+fruits.splice(1, 3);
+console.log(fruits);
+
+fruits.forEach(fruits => console.log(fruits.name));
+
+const fruitNames = fruits.map(fruit => fruit.name);
+const fruitColors = fruits.map(fruit => fruit.color);
+const fruitCalories = fruits.map(fruit => fruit.calories);
+console.log(fruitNames);
+console.log(fruitColors);
+console.log(fruitCalories);
+
+const yellowFruits = fruits.filter(fruit => fruit.color == "yellow");
+const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
+const highCalFruits = fruits.filter(fruit => fruit.calories > 100);
+console.log(yellowFruits);
+console.log(lowCalFruits);
+console.log(highCalFruits);
+
+const maxFruit = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max);
+console.log(maxFruit);
+const minFruit = fruits.reduce((min, fruit) => fruit.calories < min.calories ? fruit : min);
+console.log(minFruit);
+
+//sort()
+
+let fruits = ["apple", "orange", "banana", "coconut" , "pineapple"];
+fruits.sort();
+console.log(fruits);
+
+let numbers = [6, 7, 4, 3, 5, 1, 2, 8, 9, 10];
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+
+const people = [{name: "Spongebob", age: 30, gpa: 3.0},
+                {name: "Patrick", age: 37, gpa: 2.5},
+                {name: "Squidward", age: 61, gpa: 1.5},
+                {name: "Sandy", age: 22, gpa: 7.0}]
+
+people.sort((a, b) => a.age - b.age);
+people.sort((a, b) => a.name.localeCompare(b.name));
+console.log(people);
+
+//shuffle an array
+//Fisher Yates Algorithm
+
+const cards = ['A', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+shuffle(cards);
+
+console.log(cards);
+
+function shuffle(array) {
+  for(let i = array.length - 1; i > 0; i--){
+    const random = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[random] = array[random], array[i]];
+  }
+}
+
+//Date Objects
+
+const date = new Date();
+const date1 = new Date(2024, 0, 1, 2, 3, 4, 5);
+const date2 = new Date("2024-01-02T12:00:00Z");
+const date3 = new Date(170000000);
+console.log(date);
+console.log(date1);
+console.log(date2);
+
+const year = date.getFullYear();
+console.log(year);
+const month = date.getMonth();
+console.log(month);
+const day = date.getDate();
+console.log(day);
+const hour = date.getHours();
+console.log(hour);
+const minutes = date.getMinutes();
+console.log(minutes);
+const seconds = date.getSeconds(0);
+console.log(seconds);
+const dayOfWeek = date.getDay();
+console.log(dayOfWeek);
+
+const date = new Date();
+date.setFullYear(2099);
+date.setMonth(4);
+date.setDate(10);
+date.setHours(9);
+date.setMinutes(10);
+date.setSeconds(20);
+console.log(date);
+
+const date1 = new Date("2024-07-21");
+const date2 = new Date("2024-07-22");
+if(date2 > date1) {
+    console.log("You got through the day.Finally!");
+}
+
+//closure
+
+function outer() {
+
+    let message = "Hello!";
+
+    function inner() {
+        console.log(message);
+    }
+   inner();
+}
+message = "GoodBye!";
+outer();
+
+function createCounter() {
+    let count = 0;
+function increment() {
+    count++;
+    console.log(`count increased by ${count}`);
+}
+function getCount() {
+    return count;
+}
+    return {increment, getCount};
+}
+const counter = createCounter();
+counter.increment();
+counter.increment();
+counter.increment();
+
+console.log(`The current count is ${counter.getCount()}`);
+                                                           
+*/
