@@ -1,22 +1,58 @@
 body {
-    margin: 0;
-    background-image: url(background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-#clock-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    background-color: gray;
 }
-#clock {
+#myH1 {
+    font-size: 4rem;
+    font-family: "Arial", sans-serif;
+    color: black;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid;
+    border-radius: 50px;
+    padding: 30px;
+    background-color: white;
+}
+#display {
+    font-size: 5rem;
     font-family: monospace;
-    font-size: 7rem;
     font-weight: bold;
-    text-align: center;
-    color: red;
-    backdrop-filter: blur(5px);
-    width: 100%;
+    color: black;
+    text-shadow: 2px 2px 2px black;
+    margin-bottom: 25px;
+}
+#controls button {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 6px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;   
+    transition: background-color 0.5s ease;
+}
+#startBtn {
+    background-color: red;
+}
+#startBtn:hover {
+    background-color: darkred;
+}
+#stopBtn {
+    background-color: blue;
+}
+#stopBtn:hover {
+    background-color: darkblue;
+}
+#resetBtn {
+    background-color: green;
+}
+#resetBtn:hover {
+    background-color: darkgreen;
 }
