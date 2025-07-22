@@ -1769,6 +1769,69 @@ function clearTimeout() {
     console.log("Cleared");
 }
 
+//ES6 Modules in javascript
+
+
+import {PI, getCircumference, getArea, getVolume} from './module.js';
+console.log(PI);
+const circumference = getCircumference(10);
+const area = getArea(10);
+const volume = getVolume(10);
+
+console.log(`${circumference.toFixed(2)}cm^3`);
+console.log(`${area.toFixed(2)}cm^3`);
+console.log(`${volume.toFixed(2)}cm^3`);
+
+//asynchronous code
+
+function function1(callback) {
+    setTimeout(() => {console.log("Task 1");
+                      callback()}, 4000);
+}
+
+function function2() {
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+}
+function1(function2);
+
+//error handling
+//try {}
+//catch {}
+//finally {}
+
+try {
+    console.log(x);
+}
+
+catch(error) {
+    console.log(error);
+    console.error(error);
+}
+finally {
+    console.log("will excecute");
+}
+console.log("You have reached the end of the programs");
+
 */
 
+try {
+    const dividend = Number(window.prompt("Enter a dividend: "));
+    const divisor = Number(window.prompt("Enter a divisor: "));
 
+    if(divisor == 0) {
+        throw new Error("You can't divide by 0!");
+    }
+    if(isNaN(dividend) || isNaN(divisor)) {
+        throw new Error("Not a number");
+    }
+
+    const result = dividend / divisor;
+    console.log(result);
+}
+
+catch(error) {
+    console.error(error);
+}
+console.log("END");
