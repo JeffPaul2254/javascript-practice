@@ -1739,5 +1739,36 @@ counter.increment();
 counter.increment();
 
 console.log(`The current count is ${counter.getCount()}`);
-                                                           
+
+//setTimeout() function
+
+function sayHello() {
+    window.alert("Hello");
+}
+setTimeout(sayHello,3000);
+
+setTimeout(function(){window.alert("Hello")}, 3000);
+setTimeout(() => window.alert("Hello"), 3000);                                                           
+
+//clearTimeout(timeoutId) function
+
+const timeoutId = setTimeout(() => window.alert("Hello"), 3000); 
+clearTimeout(timeoutId);
+
+//example program
+
+let timeoutId;
+
+function setTimeout() {
+  timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+  console.log("Started");
+}
+
+function clearTimeout() {
+    clearTimeout(timeoutId);
+    console.log("Cleared");
+}
+
 */
+
+
