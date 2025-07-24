@@ -1996,8 +1996,6 @@ Array.from(children).forEach(child => {
     child.style.backgroundColor = "yellow";
 })
 
-*/
-
 //Add & change HTML
 
 //step 1 create the element
@@ -2009,7 +2007,6 @@ newH1.id = "myH1";
 newH1.style.color = "tomato";
 newH1.style.textAlign = "center";
 
-/*
 //step 3 append element to DOM
 document.body.append(newH1);
 
@@ -2034,7 +2031,6 @@ document.body.insertBefore(newH1, boxes[4]);
 document.getElementById("box1").append(newH1);
 
 document.getElementById("box1").removeChild(newH1);
-*/
 
 //ordered list
 const newListItem = document.createElement("li");
@@ -2044,3 +2040,228 @@ newListItem.id = "coconut";
 newListItem.style.fontWeight = "bold";
 newListItem.style.backgroundColor = "gray";
 document.getElementById("fruits").append(newH1);
+
+// event listeners: mouse event
+
+const myBox = document.getElementById("myBox");
+const myButton = document.getElementById("myButton");
+
+myButton.addEventListener("click", function(event) {
+    myBox.style.backgroundColor = "orange";
+    myBox.textContent = "Hi";
+});
+
+myButton.addEventListener("mouseover", event => {
+   myBox.style.backgroundColor = "yellow";
+    myBox.textContent = "DON'T DO IT";
+})
+
+myButton.addEventListener("mouseout", event => {
+    myBox.style.backgroundColor = "tomato";
+    myBox.textContent = "NOOO";
+});
+
+//event listeners: key events
+
+const myBox = document.getElementById("myBox");
+
+document.addEventListener("keydown", event => {
+    myBox.textContent = "😊";
+    myBox.backgroundColor = "blue";
+});
+
+document.addEventListener("keyup", event => {
+    myBox.textContent = "🤣";
+    myBox.backgroundColor = "lightblue";
+});
+
+const moveAmount = 10;
+let x = 0;
+let y = 0;
+document.addEventListener("keydown", event => {
+
+    if(event.key.startsWith("arrow")) {
+
+        event.preventDefault();
+
+        switch(event.key) {
+            case "arrowup":
+                y -= movement;
+                break;
+            case "arrowdwon":
+                y += movement;
+                break;
+            case "arrowleft":
+                x -= movement;
+                break;
+            case "arrowright":
+                x += movement;
+                break;
+        }
+
+        myBox.style.top = `${y}px`;
+        myBox.style.left = `${y}px`;
+    }
+});
+
+const myButton = document.getElementById("myButton");
+const myImg = document.getElementById("myImg");
+
+myButton.addEventListener("click", event => {
+
+    if(myImg.style.visibility == "hidden") {
+       myImg.style.visibility = "visible ";
+       myButton.textContent = "HIDE";
+    }
+    else {
+    myImg.style.visibility = "hidden";
+    myButton.textContent = "SHOW";
+    }
+});
+
+//node list
+
+let buttons = document.querySelectorAll(".myButtons");
+
+//style and add html and css properties
+
+buttons.forEach(button => {
+    button.style.backgroundColor = "blue";
+    button.textContent += "😒";
+});
+
+//click event listener
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.style.backgroundColor = "green";
+    });
+});
+
+//mouseover and mouseout event listener
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = " purple";
+    })
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = " blue";
+    })
+});
+
+// add an element to nodelist
+
+const newButton = document.createElement("button");
+newButton.textContent = "Button 5";
+newButton.classList = "myButtons";
+document.body.appendChild(newButton);
+
+buttons = document.querySelectorAll(".myButtons");
+console.log(buttons);
+
+//remove an element
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.remove();
+        buttons = document.querySelectorAll(".myButtons");
+        console.log(buttons);
+    });
+});
+
+*/
+
+//class list
+
+const myButton = document.getElementById("myButton");
+const myH1 = document.getElementById("myH1");
+
+/*
+myButton.classList.add("enabled");
+myButton.classList.remove("enabled");
+
+//add
+
+myButton.addEventListener("mouseover", event => {
+    event.target.classList.add("hover");
+});
+
+//remove
+
+myButton.addEventListener("mouseout", event => {
+    event.target.classList.remove("hover");
+});
+
+//toggle
+
+myButton.addEventListener("mouseover", event => {
+    event.target.classList.toggle("hover");
+});
+
+myButton.addEventListener("mouseout", event => {
+    event.target.classList.toggle("hover");
+});
+
+//replace
+
+myButton.classList.add("enabled");
+myButton.addEventListener("click", event => {
+    event.target.classList.replace("enabled", "disabled");
+});
+
+//contains()
+
+myH1.classList.add("enabled");
+myButton.classList.add("enabled");
+
+myButton.addEventListener("click", event => {
+    if(event.target.classlist.contains("disabled")) {
+        event.target.textContent += "🤣";
+    }
+    else {
+        event.target.classList.replace("enabled", "disabled");
+    }
+});
+
+myH1.addEventListener("click", event => {
+    if(event.target.classlist.contains("disabled")) {
+        event.target.textContent += "🤣";
+    }
+    else {
+        event.target.classList.replace("enabled", "disabled");
+    }
+});
+
+let buttons = document.querySelectorAll(".myButton");
+
+buttons.forEach(button => {
+    button.classList.add("enabled");
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.classList.toggle("hover");
+    });
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.classList.toggle("hover");
+    });
+});
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+       if(event.target.classlist.contains("disabled")){
+        event.target.textContent += "🤣";
+    }
+    else {
+        event.target.classList.replace("enabled", "disabled");
+    }
+    });
+});
+
+*/

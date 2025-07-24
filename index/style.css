@@ -1,6 +1,8 @@
+/*
 body {
     font-family: Verdana;
     font-size: 15px;
+    margin: 0;
 }
 .box {
     border: 3px solid;
@@ -10,4 +12,60 @@ body {
 #fruits {
     border: 3px solid;
     font-size: 2rem;
+}
+#myBox {
+    background-color: red;
+    width: 300px;
+    height: 300px;
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#myButton {
+    font-size: 3rem;
+}
+#myBox1 {
+    background-color: darkblue;
+    width: 200px;
+    height: 200px;
+    font-size: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.myButtons {
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 15px;
+    background-color: tomato;
+}
+ */
+
+ .myButton {
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+ }
+.enabled {
+    background-color: blue;
+    color: white;
+}
+.hover {
+    box-shadow: 0 0 10px purple;
+    font-weight: bold;
+}
+.disabled {
+    background-color: red;
+    color: black;
+}
+#myH1 {
+    font-size: 5rem; 
 }
