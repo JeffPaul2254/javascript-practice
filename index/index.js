@@ -2264,4 +2264,288 @@ buttons.forEach(button => {
     });
 });
 
+//callback hell
+
+function task1(callback) {
+setTimeout(() => {
+ console.log("Task 1 Complete");
+ callback();
+},1000);
+}
+ function task2(callback) {
+ setTimeout(() => {
+ console.log("Task 2 Complete");
+ callback();
+},2000);
+}
+ function task3(callback) {
+ setTimeout(() => {
+ console.log("Task 3 Complete");
+ callback();
+},3000);
+}
+ function task4(callback) {
+ setTimeout(() => {
+ console.log("Task 4 Complete");
+ callback();
+},4000);
+}
+
+ function task5(callback) {
+ setTimeout(() => {
+ console.log("Task 5 Complete");
+ callback();
+},5000);
+}
+
+task1(() => {
+    task2(() => {
+        task3(() => {
+            task4(() => {
+                task5(() => console.log("All tasks complete"));
+            });
+        });
+    });
+});
+
+//promise
+
+function walkDog() {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const dogwalked = true;
+            if(dogwalked) {
+                resolve("You have walked the dog");
+            }
+            else {
+        reject("You did not walk the dog");
+            }
+    }, 1000);
+    });
+}
+
+function cleanKitchen() {
+
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+        const kitchenclean = true;
+        if(kitchenclean) {
+            resolve("You have cleaned the kitchen");
+        }
+        else {
+            reject("You have not cleaned the kitchen");
+        }  
+    }, 2500);
+    });
+}
+
+function takeOutTrash() {
+
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+        const trashtakeout = true;
+        if(trashtakeout) {
+            resolve("You took out the trash");
+        }
+        else {
+            reject("You not taken out the trash");
+        }
+    }, 300);
+    });
+}
+
+walkDog().then(value => {console.log(value); return cleanKitchen()})
+         .then(value => {console.log(value); return takeOutTrash()})
+         .then(value => {console.log(value); console.log("You have finished all the chores");  })
+         .catch(error => console.error(error));
+
+//Async/Await
+
+function walkDog() {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const dogwalked = true;
+            if(dogwalked) {
+                resolve("You have walked the dog");
+            }
+            else {
+        reject("You did not walk the dog");
+            }
+    }, 1000);
+    });
+}
+
+function cleanKitchen() {
+
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+        const kitchenclean = true;
+        if(kitchenclean) {
+            resolve("You have cleaned the kitchen");
+        }
+        else {
+            reject("You have not cleaned the kitchen");
+        }  
+    }, 2500);
+    });
+}
+
+function takeOutTrash() {
+
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+        const trashtakeout = true;
+        if(trashtakeout) {
+            resolve("You took out the trash");
+        }
+        else {
+            reject("You not taken out the trash");
+        }
+    }, 300);
+    });
+}
+
+async function doChores() {
+    
+    try {
+        const walkDogResult = await walkDog();
+    console.log(walkDogResult);
+    const cleanKitchenResult = await cleanKitchen();
+    console.log(cleanKitchenResult);
+    const takeOutTrashResult = await takeOutTrash();
+    console.log(takeOutTrashResult);
+    console.log("You finished all the chores");
+    }
+    catch {
+        console.error(error);
+    }
+}
+
+doChores()
+
+//JSON - JavaScript Object Notation
+
+//json.stringify();
+
+const names = ["Jeffrey", "Finny", "fanny"];
+
+const person = {
+    "name": "Jeffrey Paulouse",
+    "age": 22,
+    "employed": true,
+    "hobbie": ["reading", "gaming", "movies"]
+};
+
+const people = [{
+    "name": "Jeffrey Paulouse",
+    "age": 22,
+    "employed": true
+},
+{
+    "name": "Finny Ebenzer",
+    "age": 30,
+    "employed": true
+},
+{
+    "name": "Fanny Evangeline",
+    "age": 28,
+    "employed": true
+},
+{
+    "name": "Derek Samson",
+    "age": 21,
+    "employed": false
+}];
+
+const jsonString = JSON.stringify(names);
+console.log(jsonString);
+
+const jsonString1 = JSON.stringify(person);
+console.log(jsonString1);
+
+const jsonString2 = JSON.stringify(people);
+console.log(jsonString2);
+
+//json.parse();
+
+const jsonNames = `["Jeffrey", "Finny", "fanny"]`;
+
+const jsonPerson = `{"name": "Jeffrey Paulouse","age": 22,"employed": true,"hobbie": ["reading", "gaming", "movies"]}`;
+
+const jsonPeople = `[{"name": "Jeffrey Paulouse","age": 22,"employed": true},
+                {"name": "Finny Ebenzer","age": 30,"employed": true},
+                {"name": "Fanny Evangeline","age": 28,"employed": true},
+                {"name": "Derek Samson","age": 21,"employed": false}]`;
+
+const parsedData = JSON.parse(jsonNames);
+console.log(jsonNames);
+console.log(parsedData);
+
+const parsedData1 = JSON.parse(jsonPerson);
+console.log(jsonPerson);
+console.log(parsedData1);
+
+const parsedData2 = JSON.parse(jsonPeople);
+console.log(jsonPeople);
+console.log(parsedData2);
+
+//fetch JSON files
+
+fetch("names.json")
+.then(response => response.json())
+.then(value => console.log(value))
+
+fetch("person.json")
+.then(response => response.json())
+.then(value => console.log(value))
+
+fetch("people.json")
+.then(response => response.json())
+.then(value => console.log(value))
+
+fetch("people.json")
+.then(response => response.json())
+.then(values => values.forEach(value => console.log(value)) )
+.then(values => values.forEach(value => console.log(value.age)) )
+.catch(error => console.error(error));
+
+//fetch
+
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+      .then(response => {
+
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        }
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+               
 */
+
+//sync and await to fetch
+
+fetchData();
+async function fetchData(){
+
+    try{
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon-species/aegislash");
+
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        }
+        const data = await response.json();
+        console.log(data);
+    }catch(error){
+        console.error(error);
+    }
+}

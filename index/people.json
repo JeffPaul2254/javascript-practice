@@ -1,0 +1,20 @@
+[{
+    "name": "Jeffrey Paulouse",
+    "age": 22,
+    "employed": true
+},
+{
+    "name": "Finny Ebenzer",
+    "age": 30,
+    "employed": true
+},
+{
+    "name": "Fanny Evangeline",
+    "age": 28,
+    "employed": true
+},
+{
+    "name": "Derek Samson",
+    "age": 21,
+    "employed": false
+}]
